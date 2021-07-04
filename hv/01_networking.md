@@ -11,6 +11,25 @@
   * DNS aliases are `${CATEGORY_NAME}${SEQUENTIAL_ID`, where `CATEGORY_NAME` is word alias of `CATEGORY` ID from IP numbering, and `SEQUENTIAL_ID` is the one from IP numbering as well
 
 
+## NET_PLAN
+
+### Location
+* 0 - Rlyeh
+* 201 - amaterasu
+
+### Categories
+* 0 - reserved
+* 1 - web public
+* 2 - mysql db
+* 3 - psql db
+* 4 - dns
+* 5 - influx db
+* 6 - sandbox
+* 7 - infra
+* 8 - web private
+* 254 - remote clients
+* 255 - remote clients
+
 ## Packages to install
 ```
 apt install bridge-utils iptables
@@ -40,36 +59,7 @@ network:
           - 2a01:4f8:0:1::add:9999
           - 2a01:4f8:0:1::add:9898
           - 2a01:4f8:0:1::add:1010
-  bridges:
-    net10:
-      addresses:
-        - 10.0.0.1/8
 ```
 
-## NAT script - `/usr/local/bin/nat-setup`
-```bash
-#!/bin/bash
-logger "Setting up NAT for net10"
-echo 1 > /proc/sys/net/ipv4/ip_forward
-iptables -t nat -A POSTROUTING -s '10.0.0.0/8' -o enp9s0 -j MASQUERADE
-```
 
-## NAT service - `/etc/systemd/system/nat-setup.service`
-```
-[Unit]
-Description=NAT setup
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/nat-setup
-
-[Install]
-WantedBy=network.target
-```
-
-### Enable&start
-```bash
-systemctl start  nat-setup
-systemctl enable nat-setup
-systemctl status nat-setup
-```
+## Firewall - install ogniochron 
