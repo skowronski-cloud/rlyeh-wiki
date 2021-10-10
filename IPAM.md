@@ -1,5 +1,18 @@
 # networking guidelines
 
+## deciated vSwitch <-> HC network direct connect
+HC network:
+* `172.16.0.0/28` network
+* `172.16.0.1` gateway
+* `172.16.0.2` IP of ulthar
+* `10.1.0.1/8` IPsec IP of ulthar
+
+vSwitch side:
+* `172.16.0.16/28` network
+* `172.16.0.17` gateway
+* `172.16.0.18` IP of rlyeh
+* `10.0.0.1/8` IPsec IP of rlyeh
+
 ## IP allocation scheme: `10.LOCATION.CATEGORY.SEQ_ID`
 
 ## locations
