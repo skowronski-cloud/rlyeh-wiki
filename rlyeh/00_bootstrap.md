@@ -1,4 +1,4 @@
-# Bootstrapping from Hetzner rescue image
+# rlyeh bootstrapping from Hetzner rescue image
 
 Execute `installimage`, select `Ubuntu`, then `20.10`. In `install.conf` editor put this:
 
