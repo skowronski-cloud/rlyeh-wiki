@@ -5,6 +5,15 @@
 apt install bridge-utils iptables
 ```
 
+## vSwitch - rlyeh (robot/dedicated) part must be executed before ulthar (console/cloud) part
+
+1. go to https://robot.your-server.de/vswitch?sortcol=id&sorttype=down
+2. create vSwitch with VLAN ID **4090**
+3. select rlyeh in *Add servers to vSwitch*
+4. go to *ulthar (console/cloud) part* and after that one is complete verify that there's note in the vSwitch stating:
+   `This vSwitch is connected to cloud network #XXX, Subnet 172.16.0.16/28, Gateway 172.16.0.17.`
+
+
 ## netplan config - `/etc/netplan/01-netcfg.yaml`
 
 ```yaml
