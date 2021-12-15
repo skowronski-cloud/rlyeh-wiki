@@ -24,8 +24,8 @@
    - hosts: node01 node02
      roles:
        - basic
-       - prom-monitored
-       - loki-monitored
+       - prom_monitored
+       - loki_monitored
        - ...
      tasks:
        - name: install some base pkg

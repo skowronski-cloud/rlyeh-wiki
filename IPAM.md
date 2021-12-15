@@ -32,6 +32,7 @@ vSwitch side:
 * 8 - web private
 * 9 - monitoring
 * 10 - redis
+* 11 - consul
 * 254 - remote clients
 * 255 - remote clients
 
